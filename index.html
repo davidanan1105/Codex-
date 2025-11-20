@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CapCut-Style Editor Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">Codex Cut</div>
+      <div class="actions">
+        <button class="ghost">Import</button>
+        <button class="primary">Export</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="panel media-panel">
+        <div class="panel-header">
+          <h2>Library</h2>
+          <p>Add demo clips to the timeline</p>
+        </div>
+        <div class="asset-list" id="assetList"></div>
+        <div class="panel-section">
+          <h3>Quick adds</h3>
+          <button class="primary block" id="addVideo">Add B-Roll Clip</button>
+          <button class="secondary block" id="addText">Add Text Overlay</button>
+        </div>
+      </aside>
+
+      <section class="preview-column">
+        <div class="preview-wrapper">
+          <div class="preview-stage">
+            <video id="preview" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls></video>
+            <div id="textOverlay" class="text-overlay" aria-live="polite"></div>
+          </div>
+          <div class="transport">
+            <button id="playPause" class="primary">Play</button>
+            <label class="time-label">
+              <input type="range" id="scrubber" min="0" max="20" value="0" step="0.1" />
+              <span id="timeDisplay">0.0s</span>
+            </label>
+            <button id="addMarker" class="ghost">Add Marker</button>
+          </div>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <div class="track-label">V1</div>
+          <div class="track" id="track"></div>
+        </div>
+      </section>
+
+      <aside class="panel inspector">
+        <div class="panel-header">
+          <h2>Inspector</h2>
+          <p>Edit the selected item</p>
+        </div>
+        <form id="inspectorForm" class="inspector-form">
+          <label>
+            Label
+            <input type="text" id="labelInput" name="label" placeholder="Clip name" />
+          </label>
+          <label>
+            Start (s)
+            <input type="number" id="startInput" name="start" step="0.1" min="0" />
+          </label>
+          <label>
+            Duration (s)
+            <input type="number" id="durationInput" name="duration" step="0.1" min="0.5" />
+          </label>
+          <label>
+            Text (for overlays)
+            <input type="text" id="textInput" name="text" placeholder="Your caption" />
+          </label>
+          <button type="submit" class="primary block">Update</button>
+        </form>
+        <div class="panel-section">
+          <h3>Markers</h3>
+          <ul id="markerList" class="marker-list"></ul>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
