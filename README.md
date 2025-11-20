@@ -2,6 +2,9 @@
 
 This repository now includes a runnable CapCut-style web demo alongside the design blueprint.
 
+This branch (`work`) contains the up-to-date demo files that were used in the preview, so pulling
+or cloning it will provide the same runnable experience described below.
+
 ## What's here
 - `capcut_design.md`: Product and UX blueprint for a CapCut-style editor.
 - `index.html`, `style.css`, `script.js`: A static front-end prototype with timeline, preview, text overlays, and markers.
